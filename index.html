@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Solórzano Intriago | Consultorio Jurídico</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --dark:#080c18;
+  --dark2:#0d1220;
+  --dark3:#111827;
+  --gold:#c9a84c;
+  --gold2:#e2c97e;
+  --white:#ffffff;
+  --gray:#f7f6f3;
+  --text:#111;
+  --muted:#6b7280;
+  --border:#e5e3de;
+  --light-text:rgba(255,255,255,0.72);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Georgia','Times New Roman',serif;color:var(--text);background:#fff;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Georgia','Times New Roman',serif}
+.sans{font-family:'Segoe UI',Arial,sans-serif}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;width:100%;z-index:999;padding:0 3rem;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,12,24,0.88);backdrop-filter:blur(6px);border-bottom:1px solid rgba(201,168,76,0.15)}
+.logo-wrap{display:flex;flex-direction:column;gap:1px}
+.logo-main{color:#fff;font-family:'Georgia',serif;font-size:16px;font-weight:normal;letter-spacing:2px;text-transform:uppercase}
+.logo-sub{color:var(--gold);font-family:'Segoe UI',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2.5rem}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-family:'Segoe UI',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-contact{border:1px solid rgba(201,168,76,0.5);color:var(--gold)!important;padding:8px 20px;border-radius:2px;font-size:11px!important}
+.nav-contact:hover{background:var(--gold);color:var(--dark)!important;border-color:var(--gold)}
+
+/* ─── HERO ─── */
+.hero{height:100vh;min-height:600px;display:grid;grid-template-columns:1fr 1fr;background:var(--dark)}
+.hero-photo-col{position:relative;overflow:hidden}
+.hero-photo-col img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:brightness(0.85);display:block;background:#1a2a4a}
+.hero-photo-col::after{content:'';position:absolute;top:0;right:0;width:80px;height:100%;background:linear-gradient(to right,transparent,var(--dark))}
+.hero-text-col{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem 4rem 3rem;position:relative}
+.hero-text-col::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40z'/%3E%3C/g%3E%3C/svg%3E")}
+.hero-eyebrow{font-family:'Segoe UI',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:30px;height:1px;background:var(--gold)}
+.hero h1{color:#fff;font-size:2.8rem;font-weight:normal;line-height:1.2;margin-bottom:1.2rem;position:relative}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-divider{width:48px;height:1px;background:var(--gold);margin:1.5rem 0;opacity:0.6}
+.hero-desc{color:var(--light-text);font-family:'Segoe UI',sans-serif;font-size:14px;line-height:1.9;margin-bottom:2rem;position:relative}
+.hero-cta-row{display:flex;gap:1rem;position:relative}
+.btn-gold{background:var(--gold);color:var(--dark);padding:13px 28px;font-family:'Segoe UI',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;border-radius:2px;transition:background .2s}
+.btn-gold:hover{background:var(--gold2)}
+.btn-ghost{border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.75);padding:13px 28px;font-family:'Segoe UI',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .2s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-founder-badge{position:absolute;bottom:2.5rem;left:3rem;right:3rem;padding:1rem 1.5rem;border-top:1px solid rgba(201,168,76,0.25);display:flex;justify-content:space-between;align-items:center}
+.founder-name{color:#fff;font-size:13px;font-family:'Segoe UI',sans-serif;font-weight:600;letter-spacing:0.5px}
+.founder-role{color:var(--gold);font-size:10px;font-family:'Segoe UI',sans-serif;letter-spacing:2px;text-transform:uppercase}
+.hero-scroll{width:28px;height:28px;border:1px solid rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hero-scroll svg{width:14px;height:14px;fill:rgba(255,255,255,0.4)}
+
+/* ─── INTRO STRIP ─── */
+.intro-strip{background:var(--dark2);padding:3rem;text-align:center;border-bottom:1px solid rgba(201,168,76,0.1)}
+.intro-strip p{color:var(--light-text);font-size:1.05rem;max-width:720px;margin:0 auto;line-height:1.9;font-style:italic}
+.intro-strip p strong{color:var(--gold);font-style:normal}
+
+/* ─── AREAS ─── */
+.areas{padding:5rem 3rem;background:var(--gray)}
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-eyebrow{font-family:'Segoe UI',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+.section-header h2{font-size:2.2rem;font-weight:normal;color:var(--dark);margin-bottom:1rem}
+.section-header p{color:var(--muted);font-family:'Segoe UI',sans-serif;font-size:14px;max-width:560px;margin:0 auto;line-height:1.8}
+.areas-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:0.75rem;margin-bottom:3rem}
+.pill{font-family:'Segoe UI',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;border:1px solid var(--dark);border-radius:2px;cursor:pointer;transition:all .2s;background:transparent;color:var(--dark)}
+.pill:hover,.pill.active{background:var(--dark);color:var(--gold)}
+.areas-detail{display:none;max-width:800px;margin:0 auto;animation:fadeIn .3s}
+.areas-detail.show{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.area-box{background:#fff;border-left:3px solid var(--gold);padding:2rem 2.5rem}
+.area-box h3{font-size:1.3rem;font-weight:normal;color:var(--dark);margin-bottom:0.75rem}
+.area-box p{font-family:'Segoe UI',sans-serif;font-size:14px;color:var(--muted);line-height:1.9}
+
+/* ─── TRAYECTORIA PREVIEW ─── */
+.tray-preview{background:#fff;padding:5rem 3rem}
+.tray-preview-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.tray-left h2{font-size:2.5rem;font-weight:normal;color:var(--dark);line-height:1.2;margin-bottom:1.5rem}
+.tray-left h2 span{color:var(--gold)}
+.tray-left p{font-family:'Segoe UI',sans-serif;font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:1.5rem}
+.tray-left a{font-family:'Segoe UI',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dark);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color .2s}
+.tray-left a:hover{color:var(--gold)}
+.tray-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.tray-stat{padding:1.5rem;border:1px solid var(--border)}
+.tray-stat-num{font-size:2.5rem;font-family:'Georgia',serif;color:var(--gold);display:block;line-height:1}
+.tray-stat-label{font-family:'Segoe UI',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:8px;display:block}
+
+/* ─── PROFESIONAL ─── */
+.profesional{background:var(--dark);padding:5rem 3rem}
+.prof-inner{max-width:1100px;margin:0 auto}
+.prof-header{text-align:center;margin-bottom:4rem;border-bottom:1px solid rgba(201,168,76,0.15);padding-bottom:3rem}
+.prof-header h2{font-size:2rem;font-weight:normal;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem}
+.prof-header p{color:var(--light-text);font-family:'Segoe UI',sans-serif;font-size:13px;line-height:1.9;max-width:700px;margin:0 auto;margin-top:1rem}
+.prof-grid{display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:start}
+.prof-photo{width:260px;position:sticky;top:84px}
+.prof-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;border:1px solid rgba(201,168,76,0.3);background:#1a2a4a}
+.prof-photo-caption{text-align:center;margin-top:1rem}
+.prof-photo-caption .name{color:#fff;font-size:14px;font-family:'Georgia',serif;margin-bottom:4px}
+.prof-photo-caption .role{color:var(--gold);font-size:10px;font-family:'Segoe UI',sans-serif;letter-spacing:2px;text-transform:uppercase}
+.prof-content{}
+.prof-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(201,168,76,0.15);margin-bottom:3rem}
+.prof-num-item{background:var(--dark);padding:2rem 1.5rem;text-align:center}
+.prof-num-item .num{font-size:2.5rem;font-family:'Georgia',serif;color:var(--gold);display:block;line-height:1}
+.prof-num-item .nlabel{font-family:'Segoe UI',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:8px;display:block}
+.prof-points{display:grid;gap:1.5rem}
+.prof-point{display:flex;gap:1.5rem;padding:1.5rem;border:1px solid rgba(201,168,76,0.1)}
+.prof-point-num{font-size:2.5rem;font-family:'Georgia',serif;color:rgba(201,168,76,0.25);flex-shrink:0;line-height:1;width:40px}
+.prof-point-text h4{font-size:14px;color:var(--gold);font-family:'Segoe UI',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;font-weight:600}
+.prof-point-text p{color:var(--light-text);font-family:'Segoe UI',sans-serif;font-size:13px;line-height:1.8}
+
+/* ─── RECONOCIMIENTOS ─── */
+.recs{background:var(--gray);padding:5rem 3rem}
+.recs-inner{max-width:1100px;margin:0 auto}
+.recs-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);margin-top:3rem}
+.rec-item{background:#fff;padding:1.75rem 2rem;display:flex;gap:1rem;align-items:flex-start}
+.rec-n{font-size:1.8rem;font-family:'Georgia',serif;color:rgba(201,168,76,0.3);flex-shrink:0;line-height:1;width:36px}
+.rec-body{}
+.rec-title{font-family:'Segoe UI',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--dark);margin-bottom:4px}
+.rec-desc{font-family:'Segoe UI',sans-serif;font-size:13px;color:var(--muted);line-height:1.7}
+
+/* ─── CAPACITACIÓN ─── */
+.cap{background:#fff;padding:5rem 3rem}
+.cap-inner{max-width:1100px;margin:0 auto}
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin-top:3rem}
+.cap-card{border:1px solid var(--border);padding:1.75rem;position:relative;overflow:hidden}
+.cap-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
+.cap-name{font-family:'Segoe UI',sans-serif;font-size:13px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.cap-inst{font-family:'Segoe UI',sans-serif;font-size:12px;color:var(--muted)}
+.cap-hours{font-family:'Segoe UI',sans-serif;font-size:11px;color:var(--gold);letter-spacing:1px;margin-top:8px}
+
+/* ─── CTA ─── */
+.cta-section{background:var(--dark2);padding:6rem 3rem;text-align:center;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15)}
+.cta-section h2{font-size:2.5rem;font-weight:normal;color:#fff;line-height:1.3;margin-bottom:1.5rem}
+.cta-section h2 em{font-style:italic;color:var(--gold)}
+.cta-section p{font-family:'Segoe UI',sans-serif;color:var(--light-text);font-size:14px;max-width:500px;margin:0 auto 2.5rem;line-height:1.9}
+
+/* ─── CONTACTO ─── */
+.contacto{background:var(--gray);padding:5rem 3rem}
+.contacto-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.5fr;gap:5rem;align-items:start}
+.contact-info h3{font-size:1.5rem;font-weight:normal;color:var(--dark);margin-bottom:2rem}
+.ci{display:flex;gap:14px;margin-bottom:1.5rem;align-items:flex-start}
+.ci-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px}
+.ci-label{font-family:'Segoe UI',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.ci-val{font-family:'Segoe UI',sans-serif;font-size:14px;color:var(--dark);line-height:1.6}
+.form-label{display:block;font-family:'Segoe UI',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.form-group{margin-bottom:1.25rem}
+.form-ctrl{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:0;font-family:'Segoe UI',sans-serif;font-size:14px;color:var(--text);background:#fff;outline:none;transition:border-color .2s}
+.form-ctrl:focus{border-color:var(--gold)}
+textarea.form-ctrl{min-height:120px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{background:var(--dark);color:#fff;padding:14px 0;width:100%;font-family:'Segoe UI',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s}
+.btn-submit:hover{background:var(--gold);color:var(--dark)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--dark);padding:4rem 3rem 2rem}
+.footer-top{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand .logo-main{font-size:18px}
+.footer-brand p{font-family:'Segoe UI',sans-serif;font-size:13px;color:rgba(255,255,255,0.4);line-height:1.8;margin-top:1rem;max-width:260px}
+.footer-col h4{font-family:'Segoe UI',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.footer-col a,.footer-col p{display:block;font-family:'Segoe UI',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;margin-bottom:8px;line-height:1.6;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{max-width:1100px;margin:0 auto;padding-top:2rem;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-family:'Segoe UI',sans-serif;font-size:12px;color:rgba(255,255,255,0.2)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;height:auto}
+  .hero-photo-col{height:50vh}
+  .hero-photo-col::after{display:none}
+  .hero-text-col{padding:3rem 2rem}
+  .tray-preview-inner,.prof-grid,.contacto-inner,.footer-top{grid-template-columns:1fr;gap:2rem}
+  .prof-photo{width:100%;position:static}
+  .prof-nums{grid-template-columns:1fr}
+  .nav-links .hide-mobile{display:none}
+  nav{padding:0 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="logo-wrap">
+    <svg width="220" height="48" viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
+      <!-- Círculo exterior -->
+      <circle cx="24" cy="24" r="21" fill="none" stroke="#c9a84c" stroke-width="1"/>
+      <!-- Balanza - palo vertical -->
+      <line x1="24" y1="7" x2="24" y2="38" stroke="#c9a84c" stroke-width="1.2"/>
+      <!-- Balanza - palo horizontal -->
+      <line x1="10" y1="17" x2="38" y2="17" stroke="#c9a84c" stroke-width="1.2"/>
+      <!-- Balanza - palo inferior -->
+      <line x1="18" y1="38" x2="30" y2="38" stroke="#c9a84c" stroke-width="1.2"/>
+      <!-- Punto superior -->
+      <circle cx="24" cy="7" r="2" fill="#c9a84c"/>
+      <!-- Cadena izquierda -->
+      <line x1="10" y1="17" x2="8" y2="26" stroke="#c9a84c" stroke-width="1"/>
+      <line x1="8" y1="26" x2="16" y2="26" stroke="#c9a84c" stroke-width="1"/>
+      <!-- Cadena derecha -->
+      <line x1="38" y1="17" x2="40" y2="26" stroke="#c9a84c" stroke-width="1"/>
+      <line x1="40" y1="26" x2="32" y2="26" stroke="#c9a84c" stroke-width="1"/>
+      <!-- Platillos -->
+      <path d="M6 26 Q12 30 18 26" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+      <path d="M30 26 Q36 30 42 26" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+      <!-- Texto SOLÓRZANO -->
+      <text x="54" y="20" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#ffffff" letter-spacing="2">SOLÓRZANO</text>
+      <!-- Texto INTRIAGO -->
+      <text x="54" y="36" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#ffffff" letter-spacing="2">INTRIAGO</text>
+      <!-- Línea separadora -->
+      <line x1="54" y1="39" x2="218" y2="39" stroke="#c9a84c" stroke-width="0.6"/>
+      <!-- Texto CONSULTORIO JURÍDICO -->
+      <text x="54" y="47" font-family="'Segoe UI',sans-serif" font-size="7.5" fill="#c9a84c" letter-spacing="3.5">CONSULTORIO JURÍDICO</text>
+    </svg>
+  </div>
+  <div class="nav-links sans">
+    <a href="#areas" class="hide-mobile">Áreas de Práctica</a>
+    <a href="#trayectoria" class="hide-mobile">Trayectoria</a>
+    <a href="#profesional" class="hide-mobile">El Director</a>
+    <a href="#reconocimientos" class="hide-mobile">Reconocimientos</a>
+    <a href="#contacto" class="nav-contact">Contacto</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <!-- FOTO IZQUIERDA -->
+  <div class="hero-photo-col" style="position:relative;display:flex;flex-direction:column">
+    <img src="foto-felix-solorzano.jpg" alt="Ab. Félix Ernesto Solórzano Intriago" style="width:100%;flex:1;object-fit:cover;object-position:center top;filter:brightness(0.85);display:block">
+    <div style="background:#080c18;padding:1.2rem 1.5rem;text-align:center;border-top:1px solid rgba(201,168,76,0.2)">
+      <div style="color:#fff;font-family:'Georgia',serif;font-size:1.2rem;font-weight:normal;letter-spacing:0.5px;margin-bottom:5px">Ab. Félix Ernesto Solórzano Intriago</div>
+      <div style="color:var(--gold);font-family:'Segoe UI',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase">Socio Fundador &amp; Director Principal</div>
+    </div>
+  </div>
+  <!-- TEXTO DERECHA -->
+  <div class="hero-text-col">
+    <div class="hero-eyebrow sans" style="margin-top:1rem">Consultorio Jurídico</div>
+    <h1>Compromiso y <em>Responsabilidad</em><br>en Soluciones Legales</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc sans">Asesoramiento jurídico especializado en derecho público, administrativo y penal. Liderado por 25 años de experiencia institucional en la Policía Nacional del Ecuador.</p>
+    <div class="hero-cta-row">
+      <a href="#contacto" class="btn-gold">Contáctenos</a>
+      <a href="#areas" class="btn-ghost">Áreas de práctica</a>
+    </div>
+    <div class="hero-founder-badge">
+      <div class="hero-scroll">
+        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INTRO STRIP ─── -->
+<div class="intro-strip">
+  <p><strong>Desde Chone, Manabí, hacia todo el Ecuador.</strong> Con más de 25 años de servicio en la Policía Nacional y una sólida formación académica en derecho público y administración, brindamos asesoría jurídica de excelencia a personas naturales, jurídicas e instituciones del Estado.</p>
+</div>
+
+<!-- ─── ÁREAS ─── -->
+<section class="areas" id="areas">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-header">
+      <span class="section-eyebrow sans">Especialización</span>
+      <h2>Áreas de Práctica</h2>
+      <p class="sans">Contamos con destacada experiencia en atención a personas naturales, jurídicas e instituciones públicas.</p>
+    </div>
+    <div class="areas-pills">
+      <button class="pill active" onclick="showArea('penal',this)">Derecho Penal</button>
+      <button class="pill" onclick="showArea('admin',this)">Derecho Administrativo</button>
+      <button class="pill" onclick="showArea('politicas',this)">Políticas Públicas</button>
+      <button class="pill" onclick="showArea('rrhh',this)">RRHH Público</button>
+      <button class="pill" onclick="showArea('consultoria',this)">Consultoría Institucional</button>
+      <button class="pill" onclick="showArea('preventiva',this)">Asesoría Preventiva</button>
+    </div>
+    <div id="area-penal" class="areas-detail show">
+      <div class="area-box">
+        <h3>Derecho Penal y Procesal</h3>
+        <p class="sans">Defensa y asesoría en procesos penales, análisis de figuras delictivas, garantías del debido proceso y representación ante la Fiscalía y juzgados penales. Amplia experiencia en procedimientos de flagrancia, desarticulación de organizaciones delictivas y control de la legalidad procesal.</p>
+      </div>
+    </div>
+    <div id="area-admin" class="areas-detail">
+      <div class="area-box">
+        <h3>Derecho Administrativo Público</h3>
+        <p class="sans">Asesoramiento en actos administrativos, impugnaciones, recursos administrativos, contratación pública y relaciones jurídicas con el Estado. Revisión de resoluciones y acompañamiento en procedimientos ante organismos gubernamentales.</p>
+      </div>
+    </div>
+    <div id="area-politicas" class="areas-detail">
+      <div class="area-box">
+        <h3>Políticas Públicas y Seguridad</h3>
+        <p class="sans">Consultoría especializada en gestión institucional, seguridad ciudadana, orden público y diseño de políticas públicas en el sector gobierno. Experiencia directa en la coordinación interinstitucional con entidades del Estado ecuatoriano.</p>
+      </div>
+    </div>
+    <div id="area-rrhh" class="areas-detail">
+      <div class="area-box">
+        <h3>Recursos Humanos del Sector Público</h3>
+        <p class="sans">Asesoría en régimen disciplinario, sumarios administrativos, impugnaciones de sanciones y derechos del servidor público ecuatoriano. Gestión de asuntos internos y régimen de carrera policial y administrativa.</p>
+      </div>
+    </div>
+    <div id="area-consultoria" class="areas-detail">
+      <div class="area-box">
+        <h3>Consultoría Institucional</h3>
+        <p class="sans">Apoyo jurídico a entidades públicas, GAD municipales, instituciones de seguridad y organismos del Estado en procesos normativos, cumplimiento regulatorio y gestión de riesgos legales institucionales.</p>
+      </div>
+    </div>
+    <div id="area-preventiva" class="areas-detail">
+      <div class="area-box">
+        <h3>Asesoría Legal Preventiva</h3>
+        <p class="sans">Orientación legal proactiva para evitar litigios, revisión de contratos y documentos jurídicos, análisis de riesgos y acompañamiento estratégico en decisiones con implicaciones legales en el ámbito público y privado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRAYECTORIA PREVIEW ─── -->
+<section class="tray-preview" id="trayectoria">
+  <div class="tray-preview-inner">
+    <div class="tray-left">
+      <span class="section-eyebrow sans" style="display:block;margin-bottom:1rem">Experiencia</span>
+      <h2>Más de <span>25 años</span><br>de liderazgo institucional</h2>
+      <p class="sans">Profesional con una destacada trayectoria de más de 25 años al servicio del orden público y la justicia en Ecuador. Teniente Coronel de Policía en Servicio Pasivo, egresado de la Escuela Superior de Policía "General Alberto Enríquez Gallo", con sólida formación académica en Derecho Procesal Penal —acreditada por la Universidad Laica Eloy Alfaro de Manabí y la Universidad Técnica de Machala— y Maestría en Administración y Políticas Públicas por el Instituto de Educación Superior IEXE Universidad.</p>
+      <p class="sans">A lo largo de su carrera institucional ocupó cargos de alta responsabilidad en la Policía Nacional del Ecuador: Jefe del Distrito de Policía de Pastaza, Jefe del Distrito Bolívar-Junín, Jefe de Operaciones de la Subzona Manabí, Sub-Jefe del Distrito Este de la Subzona Santo Domingo, Jefe del Distrito Ponce Enríquez (Azuay) y Jefe de la Unidad de Asuntos Internos de la Subzona Manabí.</p>
+      <p class="sans">Su compromiso con la excelencia profesional ha sido reconocido con múltiples condecoraciones institucionales y públicas, entre ellas la Condecoración Policía Nacional de Primera Categoría por 25 años de servicio, la Condecoración Pública Solemne al Mérito Profesional otorgada por la Intendencia General de Policía de Manabí y el GAD Municipal del Cantón Bolívar, así como el reconocimiento conjunto del Consejo de la Judicatura y la Fiscalía Provincial de Manabí.</p>
+      <p class="sans">Oriundo de Chone, Manabí, su profundo conocimiento del sistema de seguridad, el derecho procesal penal y la gestión pública constituye un activo estratégico para la firma en materia de asesoría legal, cumplimiento normativo y litigación.</p>
+      <a href="#profesional">Ver perfil completo →</a>
+    </div>
+    <div class="tray-stats">
+      <div class="tray-stat">
+        <span class="tray-stat-num">25+</span>
+        <span class="tray-stat-label sans">Años de servicio policial</span>
+      </div>
+      <div class="tray-stat">
+        <span class="tray-stat-num">5</span>
+        <span class="tray-stat-label sans">Jefaturas de Distrito</span>
+      </div>
+      <div class="tray-stat">
+        <span class="tray-stat-num">10+</span>
+        <span class="tray-stat-label sans">Condecoraciones</span>
+      </div>
+      <div class="tray-stat">
+        <span class="tray-stat-num">3</span>
+        <span class="tray-stat-label sans">Títulos académicos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROFESIONAL ─── -->
+<section class="profesional" id="profesional">
+  <div class="prof-inner">
+    <div class="prof-header">
+      <span class="section-eyebrow sans">Director Principal</span>
+      <h2>Ab. Félix Ernesto Solórzano Intriago</h2>
+      <p class="sans">Teniente Coronel de Policía en Servicio Pasivo · Maestría en Administración y Políticas Públicas · Diplomado en Derecho Procesal Penal (UTM Machala y ULEAM) · Egresado de la Escuela Superior de Policía "Gral. Alberto Enríquez Gallo" · Socio Fundador del Consultorio Jurídico SOLÓRZANO INTRIAGO</p>
+    </div>
+    <div class="prof-grid">
+      <div class="prof-photo">
+        <img src="foto-felix-solorzano.jpg" alt="Ab. Félix Ernesto Solórzano Intriago" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;border:1px solid rgba(201,168,76,0.3)">
+        <div class="prof-photo-caption">
+          <div class="name">Ab. Félix E. Solórzano Intriago</div>
+          <div class="role sans">Socio Fundador</div>
+        </div>
+      </div>
+      <div class="prof-content">
+        <div class="prof-nums">
+          <div class="prof-num-item">
+            <span class="num">1999</span>
+            <span class="nlabel sans">Ingreso institucional</span>
+          </div>
+          <div class="prof-num-item">
+            <span class="num">Tcnl.</span>
+            <span class="nlabel sans">Grado alcanzado</span>
+          </div>
+          <div class="prof-num-item">
+            <span class="num">Sobr.</span>
+            <span class="nlabel sans">Calificación en ascensos</span>
+          </div>
+        </div>
+        <div class="prof-points">
+          <div class="prof-point">
+            <div class="prof-point-num">1</div>
+            <div class="prof-point-text">
+              <h4 class="sans">Liderazgo y Autoridad Institucional</h4>
+              <p class="sans">Dirigió múltiples distritos policiales a nivel nacional —Pastaza, Bolívar-Junín, Santo Domingo Este, Ponce Enríquez y la Unidad de Asuntos Internos de Manabí— demostrando capacidad de mando, gestión de crisis y coordinación interinstitucional en todo el Ecuador.</p>
+            </div>
+          </div>
+          <div class="prof-point">
+            <div class="prof-point-num">2</div>
+            <div class="prof-point-text">
+              <h4 class="sans">Formación Académica de Alto Nivel</h4>
+              <p class="sans">Maestría en Administración y Políticas Públicas (IEXE Universidad), Diplomado en Derecho Procesal Penal (UTM Machala, cuarto nivel) y Diplomado en Derecho Procesal Penal (ULEAM, tercer nivel), combinando formación jurídica con gestión pública.</p>
+            </div>
+          </div>
+          <div class="prof-point">
+            <div class="prof-point-num">3</div>
+            <div class="prof-point-text">
+              <h4 class="sans">Reconocimiento y Excelencia Comprobada</h4>
+              <p class="sans">Condecorado por la Policía Nacional (1.ª categoría por 25 años de servicio), GAD Municipal del Cantón Bolívar, Alcaldía de Junín, Gobernación de Manabí y el Consejo de la Judicatura. Calificaciones sobresalientes en todos sus cursos de ascenso institucional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RECONOCIMIENTOS ─── -->
+<section class="recs" id="reconocimientos">
+  <div class="recs-inner">
+    <div class="section-header">
+      <span class="section-eyebrow sans">Logros</span>
+      <h2>Reconocimientos y Condecoraciones</h2>
+      <p class="sans">Una trayectoria de excelencia avalada por múltiples instituciones públicas del Ecuador.</p>
+    </div>
+    <div class="recs-list">
+      <div class="rec-item"><div class="rec-n">1</div><div class="rec-body"><div class="rec-title sans">Policía Nacional — 1.ª Categoría</div><div class="rec-desc sans">Por 25 años de servicio ininterrumpido en la institución policial.</div></div></div>
+      <div class="rec-item"><div class="rec-n">2</div><div class="rec-body"><div class="rec-title sans">Intendencia General de Policía de Manabí</div><div class="rec-desc sans">Condecoración pública solemne al mérito profesional.</div></div></div>
+      <div class="rec-item"><div class="rec-n">3</div><div class="rec-body"><div class="rec-title sans">GAD Municipal del Cantón Bolívar</div><div class="rec-desc sans">Condecoración pública solemne al mérito profesional.</div></div></div>
+      <div class="rec-item"><div class="rec-n">4</div><div class="rec-body"><div class="rec-title sans">Alcaldía del Cantón Junín</div><div class="rec-desc sans">Condecoración al mérito profesional por labor destacada.</div></div></div>
+      <div class="rec-item"><div class="rec-n">5</div><div class="rec-body"><div class="rec-title sans">Emergencia Nacional COVID-19</div><div class="rec-desc sans">Felicitación pública por actos relevantes durante la emergencia sanitaria nacional.</div></div></div>
+      <div class="rec-item"><div class="rec-n">6</div><div class="rec-body"><div class="rec-title sans">Caballero al Mérito — Ascenso 2016–2018</div><div class="rec-desc sans">Calificación sobresaliente en el curso de ascenso policial.</div></div></div>
+      <div class="rec-item"><div class="rec-n">7</div><div class="rec-body"><div class="rec-title sans">Gobernación de Manabí</div><div class="rec-desc sans">Condecoración al mérito profesional otorgada por el Gobernador de Manabí.</div></div></div>
+      <div class="rec-item"><div class="rec-n">8</div><div class="rec-body"><div class="rec-title sans">Consejo de la Judicatura y Fiscalía de Manabí</div><div class="rec-desc sans">Reconocimiento oficial por labor interinstitucional. Res. No. 2016-1278-CS-PN.</div></div></div>
+      <div class="rec-item"><div class="rec-n">9</div><div class="rec-body"><div class="rec-title sans">Caballero al Mérito — Ascenso Tte. a Cap.</div><div class="rec-desc sans">Calificación sobresaliente en el XLIII Curso de Perfeccionamiento.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CAPACITACIÓN ─── -->
+<section class="cap">
+  <div class="cap-inner">
+    <div class="section-header">
+      <span class="section-eyebrow sans">Formación Continua</span>
+      <h2>Capacitación Especializada</h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-name sans">Instrucción de Vuelo para Piloto a Distancia UAS</div>
+        <div class="cap-inst sans">Centro de Capacitaciones para Piloto</div>
+        <div class="cap-hours sans">40 horas</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name sans">Curso Básico del Sistema de Comando de Incidentes</div>
+        <div class="cap-inst sans">Policía Nacional del Ecuador</div>
+        <div class="cap-hours sans">40 horas</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name sans">Curso de Respuesta a Incidentes con Materiales Peligrosos</div>
+        <div class="cap-inst sans">Policía Nacional del Ecuador</div>
+        <div class="cap-hours sans">40 horas</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-name sans">Del Debido Proceso en Sumarios</div>
+        <div class="cap-inst sans">Policía Nacional del Ecuador</div>
+        <div class="cap-hours sans">48 horas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section">
+  <h2>Asesoramiento Integral<br><em>Personalizado</em></h2>
+  <p class="sans">Profesionalidad, Responsabilidad y Compromiso en cada caso. Contáctenos y reciba orientación jurídica especializada.</p>
+  <a href="#contacto" class="btn-gold">Contáctenos</a>
+</section>
+
+<!-- ─── CONTACTO ─── -->
+<section class="contacto" id="contacto">
+  <div class="contacto-inner">
+    <div class="contact-info">
+      <h3>Información de contacto</h3>
+      <div class="ci"><div class="ci-dot"></div><div><div class="ci-label sans">Teléfono</div><div class="ci-val sans">0986314361<br>052360553</div></div></div>
+      <div class="ci"><div class="ci-dot"></div><div><div class="ci-label sans">Correo electrónico</div><div class="ci-val sans">felixsolorzano2012@gmail.com</div></div></div>
+      <div class="ci"><div class="ci-dot"></div><div><div class="ci-label sans">Dirección</div><div class="ci-val sans">Calle Nely Andrade y S/N<br>Chone, Manabí, Ecuador</div></div></div>
+      <div class="ci"><div class="ci-dot"></div><div><div class="ci-label sans">Horario de atención</div><div class="ci-val sans">Lunes a Viernes<br>08:00 — 17:00</div></div></div>
+    </div>
+    <div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label sans">Nombre</label><input type="text" class="form-ctrl" placeholder="Su nombre completo"></div>
+        <div class="form-group"><label class="form-label sans">Teléfono</label><input type="tel" class="form-ctrl" placeholder="0999999999"></div>
+      </div>
+      <div class="form-group"><label class="form-label sans">Correo electrónico</label><input type="email" class="form-ctrl" placeholder="correo@ejemplo.com"></div>
+      <div class="form-group"><label class="form-label sans">Área jurídica</label>
+        <select class="form-ctrl">
+          <option value="">Seleccione...</option>
+          <option>Derecho Penal y Procesal</option>
+          <option>Derecho Administrativo Público</option>
+          <option>Políticas Públicas y Seguridad</option>
+          <option>RRHH Sector Público</option>
+          <option>Consultoría Institucional</option>
+          <option>Asesoría Legal Preventiva</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label sans">Consulta</label><textarea class="form-ctrl" placeholder="Describa brevemente su caso o consulta..."></textarea></div>
+      <button class="btn-submit sans" onclick="alert('Gracias por su mensaje. Nos comunicaremos con usted a la brevedad.')">Enviar consulta</button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <svg width="200" height="44" viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="21" fill="none" stroke="#c9a84c" stroke-width="1"/>
+        <line x1="24" y1="7" x2="24" y2="38" stroke="#c9a84c" stroke-width="1.2"/>
+        <line x1="10" y1="17" x2="38" y2="17" stroke="#c9a84c" stroke-width="1.2"/>
+        <line x1="18" y1="38" x2="30" y2="38" stroke="#c9a84c" stroke-width="1.2"/>
+        <circle cx="24" cy="7" r="2" fill="#c9a84c"/>
+        <line x1="10" y1="17" x2="8" y2="26" stroke="#c9a84c" stroke-width="1"/>
+        <line x1="8" y1="26" x2="16" y2="26" stroke="#c9a84c" stroke-width="1"/>
+        <line x1="38" y1="17" x2="40" y2="26" stroke="#c9a84c" stroke-width="1"/>
+        <line x1="40" y1="26" x2="32" y2="26" stroke="#c9a84c" stroke-width="1"/>
+        <path d="M6 26 Q12 30 18 26" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+        <path d="M30 26 Q36 30 42 26" fill="none" stroke="#c9a84c" stroke-width="1.2"/>
+        <text x="54" y="20" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#ffffff" letter-spacing="2">SOLÓRZANO</text>
+        <text x="54" y="36" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#ffffff" letter-spacing="2">INTRIAGO</text>
+        <line x1="54" y1="39" x2="218" y2="39" stroke="#c9a84c" stroke-width="0.6"/>
+        <text x="54" y="47" font-family="'Segoe UI',sans-serif" font-size="7.5" fill="#c9a84c" letter-spacing="3.5">CONSULTORIO JURÍDICO</text>
+      </svg>
+      <p class="sans">Profesionalidad, Responsabilidad y Compromiso en Soluciones Legales. Chone, Manabí, Ecuador.</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="sans">Acerca de nosotros</h4>
+      <a href="#areas">Áreas de Práctica</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#profesional">El Director</a>
+      <a href="#reconocimientos">Reconocimientos</a>
+    </div>
+    <div class="footer-col">
+      <h4 class="sans">El Director</h4>
+      <p>Ab. Félix E. Solórzano Intriago</p>
+      <p>Socio Fundador</p>
+      <p>Tte. Coronel (SP)</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="sans">Contacto</h4>
+      <a href="tel:0986314361">0986314361</a>
+      <a href="mailto:felixsolorzano2012@gmail.com">felixsolorzano2012@gmail.com</a>
+      <p>Calle Nely Andrade y S/N<br>Chone, Manabí</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy sans">Copyright 2025 © Solórzano Intriago Consultorio Jurídico. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<script>
+function showArea(id,btn){
+  document.querySelectorAll('.areas-detail').forEach(el=>el.classList.remove('show'));
+  document.querySelectorAll('.pill').forEach(el=>el.classList.remove('active'));
+  document.getElementById('area-'+id).classList.add('show');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
